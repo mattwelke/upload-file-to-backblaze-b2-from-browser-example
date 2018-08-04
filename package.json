@@ -4,8 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "browser-sync": "./node_modules/.bin/browser-sync start --server public --files \"public\"",
+    "build": "./node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Welke",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/lodash": "^4.14.116",
+    "browser-sync": "^2.24.6",
+    "gulp-cli": "^2.0.1",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
 }
