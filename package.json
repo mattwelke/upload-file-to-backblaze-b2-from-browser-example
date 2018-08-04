@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Welke",
-  "license": "Public Domain",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/lodash": "^4.14.116",
     "@types/sha1": "^1.1.1",
