@@ -1,5 +1,5 @@
 {
-  "name": "browser-b2-upload-test",
+  "name": "browser-b2-upload-file-example",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Welke",
-  "license": "MIT",
+  "license": "Public Domain",
   "devDependencies": {
     "@types/lodash": "^4.14.116",
     "@types/sha1": "^1.1.1",
