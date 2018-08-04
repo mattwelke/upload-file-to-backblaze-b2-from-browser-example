@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+import sha1 = require("sha1");
 
 type UploadDetails = {
   uploadUrl: string;
@@ -83,6 +84,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (details !== null) {
       console.info("Valid upload details. Beginning upload.");
 
+      // Read file to get SHA1 hash.
+      const fr = new FileReader();
+      let hash: string;
+
+      fr.addEventListener('load', () => {
+        const arrayBuffer = fr.result;
+        hash = sha1(arrayBuffer).toString();
+        alert(`Hash: ${hash}`);
+      });
+
+      fr.readAsArrayBuffer(uploadFileInput.files[0]);
+
       const xhr = new XMLHttpRequest();
 
       xhr.addEventListener("load", function(this) {
@@ -94,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       xhr.setRequestHeader("Content-Type", "image/png");
       xhr.setRequestHeader("Authorization", authTokenInput.value);
       xhr.setRequestHeader("X-Bz-File-Name", uploadFileInput.files[0].name);
-      xhr.setRequestHeader("X-Bz-Content-Sha1", "unknown");
+      xhr.setRequestHeader("X-Bz-Content-Sha1", hash);
 
       xhr.send();
     } else {

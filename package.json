@@ -12,6 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/lodash": "^4.14.116",
+    "@types/sha1": "^1.1.1",
     "browser-sync": "^2.24.6",
     "gulp-cli": "^2.0.1",
     "ts-loader": "^4.4.2",
@@ -20,6 +21,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "sha1": "^1.1.1"
   }
 }
