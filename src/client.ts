@@ -90,8 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       fr.addEventListener('load', () => {
         const arrayBuffer = fr.result;
-        hash = sha1(arrayBuffer).toString();
-        alert(`Hash: ${hash}`);
+        hash = sha1(arrayBuffer.toString()).toString();
       });
 
       fr.readAsArrayBuffer(uploadFileInput.files[0]);
@@ -99,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const xhr = new XMLHttpRequest();
 
       xhr.addEventListener("load", function(this) {
-        alert(jsonStringify(this.response));
+        console.info(JSON.parse(this.response));
       });
 
       xhr.open("POST", uploadUrlInput.value);
@@ -109,7 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
       xhr.setRequestHeader("X-Bz-File-Name", uploadFileInput.files[0].name);
       xhr.setRequestHeader("X-Bz-Content-Sha1", hash);
 
-      xhr.send();
+      const fileToSend = uploadFileInput.files[0];
+
+      xhr.send(fileToSend);
     } else {
       const msg = "Invalid upload details. Cancelling upload.";
       console.info(msg);
