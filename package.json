@@ -14,7 +14,7 @@
     "@types/lodash": "^4.14.123",
     "@types/sha1": "^1.1.1",
     "browser-sync": "^2.26.3",
-    "gulp-cli": "^2.0.1",
+    "gulp-cli": "^2.1.0",
     "ts-loader": "^5.3.3",
     "typescript": "^3.4.1",
     "webpack": "^4.29.6",
