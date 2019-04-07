@@ -16,7 +16,7 @@
     "browser-sync": "^2.26.3",
     "gulp-cli": "^2.1.0",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.4.1",
+    "typescript": "^3.4.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
