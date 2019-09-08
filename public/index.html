@@ -6,46 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="scripts/bundle.js"></script>
 </head>
 
 <body>
     <div class="container">
+        <h1>B2 Image Browser Upload Test</h1>
         <div class="row">
-            <h1 id="pageTitle">B2 Image Browser Upload Test</h1>
-            <p>Set the image upload URL (obtained from the call to the get_upload_url endpoint), then set a file to upload and
-                upload it. If successful, a "SUCCESS" message will be printed in green below.</p>
-        </div>
-        <div class="row b2t-row" id="inputRow">
             <div class="col-sm">
-                <div class="form-group">
-                    <label for="uploadUrlInput">Image Upload URL:</label>
-                    <br />
-                    <input type="text" class="b2t-text-input" id="uploadUrlInput" placeholder="http[s]://"></input><br /><br />
-
-                    <label for="authTokenInput">Auth token:</label>
-                    <br />
-                    <input type="text" class="b2t-text-input" id="authTokenInput" placeholder="..."></input>
-                </div>
+                <p>Choose a file to upload and click "Upload".</p>
+                <p>Observe in the network tab as the following steps are performed:</p>
+                <ol>
+                    <li>The upload details are fetched from the running back end.</li>
+                    <li>The preflight (OPTIONS) request for the B2 file upload is performed.</li>
+                    <li>The POST request for the B2 file upload is performed to the upload URL returned from the running
+                        back end.</li>
+                </ol>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm">
                 <div class="form-group">
-                    <label for="fileInput">Upload file:</label><br />
                     <input type="file" class="" id="uploadFileInput" /><br />
-                    <button class="btn-default b2t-form-btn" id="uploadFileButton" disabled="true">Upload</button>
+                    <button class="btn-default" id="uploadFileButton">Upload</button>
                 </div>
             </div>
         </div>
-        <!-- /inputRow -->
-        <div class="row" id="outputRow">
-
-        </div>
-        <!-- /outputRow -->
-    </div>
-
 </body>
 
 </html>
