@@ -1,25 +1,28 @@
 import * as _ from 'lodash';
 import { UploadDetails } from '.';
 
-export const getUploadDetails: (document: Document) => UploadDetails | null = () => {
-    const uploadUrlInput = document.getElementById("uploadUrlInput") as HTMLInputElement;
-    const authTokenInput = document.getElementById("authTokenInput") as HTMLInputElement;
-    const uploadFileInput = document.getElementById("uploadFileInput") as HTMLInputElement;
+const getUploadDetailsUrl = 'http://localhost:3000/getUploadDetails';
 
-    const uploadUrlValid =
-        !_.isNil(uploadUrlInput) && uploadUrlInput.value.length > 0;
-    const fileValid =
-        !_.isNil(uploadFileInput) && uploadFileInput.value.length > 0;
-    const authTokenValid =
-        !_.isNil(authTokenInput) && authTokenInput.value.length > 0;
+/**
+ * getUploadDetailsAjax fetches the upload details from the running back end.
+ */
+export const getUploadDetails: () => Promise<UploadDetails> = async () => {
+    return new Promise((resolve, reject) => {
+        var data = null;
 
-    if (uploadUrlValid && fileValid && authTokenValid) {
-        return {
-            uploadUrl: uploadUrlInput.value,
-            fileUri: uploadFileInput.value,
-            authToken: authTokenInput.value
-        };
-    }
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
 
-    return null;
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.info(`Get upload details response: `, this.responseText);
+                const uploadDetails: UploadDetails = JSON.parse(this.responseText);
+                resolve(uploadDetails);
+            }
+        });
+
+        xhr.open("GET", getUploadDetailsUrl);
+
+        xhr.send(data);
+    });
 };
