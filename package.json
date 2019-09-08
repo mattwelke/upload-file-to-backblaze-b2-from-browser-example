@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "browser-sync": "./node_modules/.bin/browser-sync start --server public --files \"public\"",
-    "build": "./node_modules/.bin/webpack",
+    "browser-sync": "browser-sync start --server public --files \"public\"",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Welke",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
     "@types/lodash": "^4.14.137",
     "@types/sha1": "^1.1.2",
     "browser-sync": "^2.26.7",
@@ -20,6 +21,7 @@
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "lodash": "^4.17.15",
     "sha1": "^1.1.1"
   }
