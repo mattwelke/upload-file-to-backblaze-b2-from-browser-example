@@ -15,7 +15,7 @@
     "@types/lodash": "^4.14.144",
     "@types/sha1": "^1.1.2",
     "browser-sync": "^2.26.7",
-    "ts-loader": "^6.2.0",
+    "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
