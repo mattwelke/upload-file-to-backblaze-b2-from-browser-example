@@ -16,7 +16,7 @@
     "@types/sha1": "^1.1.2",
     "browser-sync": "^2.26.7",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
+    "typescript": "^3.7.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
