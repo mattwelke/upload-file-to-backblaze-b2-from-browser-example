@@ -7,5 +7,7 @@ jobs:
         name: Run Tests
         runs-on: ubuntu-latest
         steps:
+            - name: Install Dependencies
+              run: npm install
             - name: Run Tests
-              run: "echo \"PWD: $PWD\""
+              run: npm test
