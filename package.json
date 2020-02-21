@@ -6,7 +6,7 @@
   "scripts": {
     "browser-sync": "browser-sync start --server public --files \"public\" --port 3001",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build"
   },
   "author": "Matt Welke",
   "license": "Apache-2.0",
