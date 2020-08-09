@@ -12,7 +12,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/crypto-js": "^3.1.47",
-    "@types/lodash": "^4.14.158",
+    "@types/lodash": "^4.14.159",
     "@types/sha1": "^1.1.2",
     "browser-sync": "^2.26.12",
     "ts-loader": "^8.0.2",
