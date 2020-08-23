@@ -4,26 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "browser-sync": "browser-sync start --server public --files \"public\" --port 3001",
+    "browser-sync": "browser-sync start --server --port 3001",
     "build": "webpack",
-    "test": "npm run build"
+    "test": "npm run build",
+    "start": "npm run build && npm run browser-sync"
   },
   "author": "Matt Welke",
-  "license": "Apache-2.0",
+  "license": "Unlicense",
   "devDependencies": {
-    "@types/crypto-js": "^3.1.47",
-    "@types/lodash": "^4.14.159",
-    "@types/sha1": "^1.1.2",
     "browser-sync": "^2.26.12",
-    "ts-loader": "^8.0.2",
-    "typescript": "^4.0.2",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "crypto-js": "^4.0.0",
-    "lodash": "^4.17.20",
     "sha1": "^1.1.1"
   }
 }
