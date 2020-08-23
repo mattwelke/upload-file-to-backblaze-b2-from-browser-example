@@ -22,8 +22,6 @@ Run the app with `node bin/www` from the `backend` directory.
 
 Run `npm install`.
 
-Run `npm run build` from the root directory to compile and bundle the front end app.
-
-Run `npm run browser-sync` to host the compiled front end app on `http://localhost:3001`. Note that the CORS settings for the back end app only allow this origin.
+Run `npm start` to compile and host the front end app on `http://localhost:3001`. Note that the CORS settings for the back end app only allow this origin.
 
 Choose file and upload.

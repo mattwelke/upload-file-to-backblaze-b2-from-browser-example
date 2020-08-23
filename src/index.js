@@ -1,16 +1,31 @@
-import * as _ from 'lodash';
 import * as CryptoJS from 'crypto-js';
 
-import { getUploadDetails } from './getUploadDetails';
+const getUploadDetailsUrl = 'http://localhost:3000/getUploadDetails';
 
-export interface UploadDetails {
-    uploadUrl: string;
-    authToken: string;
+const getUploadDetails = async () => {
+    return new Promise((resolve, reject) => {
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.info(`Get upload details response: `, this.responseText);
+                const uploadDetails = JSON.parse(this.responseText);
+                resolve(uploadDetails);
+            }
+        });
+
+        xhr.open("GET", getUploadDetailsUrl);
+
+        xhr.send(data);
+    });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    const uploadFileInput = document.getElementById("uploadFileInput") as HTMLInputElement;
-    const uploadFileButton = document.getElementById("uploadFileButton") as HTMLButtonElement;
+    const uploadFileInput = document.getElementById("uploadFileInput");
+    const uploadFileButton = document.getElementById("uploadFileButton");
 
     // When upload button clicked, get upload details and then perform file
     // upload with AJAX.
@@ -20,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = uploadFileInput.files[0];
         const reader = new FileReader();
         reader.onload = function () {
-            const hash: string = (CryptoJS.SHA1(CryptoJS.enc.Latin1.parse(reader.result as string))) as any;
+            const hash = CryptoJS.SHA1(CryptoJS.enc.Latin1.parse(reader.result));
             // Data hashed. Now perform upload.
             const xhr = new XMLHttpRequest();
 
-            xhr.addEventListener("load", function (this) {
+            xhr.addEventListener("load", function () {
                 console.info(`XHR response:`, this.response);
             });
 
