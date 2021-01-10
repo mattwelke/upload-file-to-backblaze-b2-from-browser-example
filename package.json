@@ -1,7 +1,7 @@
 {
-  "name": "browser-b2-upload-file-example",
-  "version": "0.0.1",
-  "description": "",
+  "name": "upload-file-to-backblaze-b2-from-browser-example-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the example.",
   "main": "index.js",
   "scripts": {
     "browser-sync": "browser-sync start --server --port 3001",

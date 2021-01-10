@@ -1,6 +1,12 @@
-# browser-b2-upload-file-example
+# upload-file-to-backblaze-b2-from-browser-example
 
-This example demonstrates calling the **b2_upload_file** Backblaze B2 Cloud Storage API from a web browser using XHR AJAX.
+This example demonstrates using the "b2_upload_file" Backblaze B2 Cloud Storage API from a web browser to upload a file directly from a web browser to the B2 bucket, without the file contents having to go through an intermediate web server you control.
+
+This is similar to using techniques with other cloud storage providers such as AWS's [presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html) and GCP's [signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
+
+An intermediate web server is used, but only to authenticate the client, not to transmit the file contents to the B2 bucket. If the example were expanded to a real world use case, your own IAM system would control whether or not the web browser would be allowed to obtain the B2 token and perform the file upload, based on your own logic.
+
+# Components
 
 The example has two components:
 
@@ -48,7 +54,7 @@ Set the following environment variables:
 * B2_KEY_ID - The keyId for your B2 application key
 * B2_APPLICATION_KEY - Your B2 application key
 
-Run the app with `node bin/www` from the `backend` directory.
+Run the app with `npm start` from the `backend` directory.
 
 ## Running front end
 
