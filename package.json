@@ -12,7 +12,7 @@
   "author": "Matt Welke",
   "license": "Unlicense",
   "devDependencies": {
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^2.26.14",
     "webpack": "^5.25.1",
     "webpack-cli": "^4.3.1"
   },
