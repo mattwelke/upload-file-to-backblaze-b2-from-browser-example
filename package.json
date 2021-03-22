@@ -13,7 +13,7 @@
   "license": "Unlicense",
   "devDependencies": {
     "browser-sync": "^2.26.14",
-    "webpack": "^5.26.3",
+    "webpack": "^5.27.1",
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
