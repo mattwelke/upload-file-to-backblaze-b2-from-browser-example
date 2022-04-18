@@ -17,13 +17,7 @@ module.exports = async () => {
     console.info(`Success getting B2 auth details`);
 
     const data = authRes.data;
-    
-    if (!data.allowed) {
-        throw new Error(`Missing property "allowed" in ${apiMethodName} response.`);
-    }
-    if (!data.allowed.bucketId) {
-        throw new Error(`Missing property "allowed.bucketId" in ${apiMethodName} response.`);
-    }
+
     if (!data.apiUrl) {
         throw new Error(`Missing property "apiUrl" in ${apiMethodName} response.`);
     }
@@ -32,7 +26,6 @@ module.exports = async () => {
     }
 
     return {
-        bucketId: data.allowed.bucketId,
         apiUrl: data.apiUrl,
         authToken: data.authorizationToken,
     };

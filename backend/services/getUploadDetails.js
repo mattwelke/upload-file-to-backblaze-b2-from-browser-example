@@ -1,9 +1,10 @@
 const axios = require('axios');
 
+const config = require('../config');
+
 module.exports = async ({
     apiUrl,
     authToken,
-    bucketId,
 }) => {
     const getUploadRes = await axios({
         method: 'POST',
@@ -12,7 +13,7 @@ module.exports = async ({
             'Authorization': authToken,
         },
         data: {
-            bucketId,
+            bucketId: config.b2BucketId,
         },
     });
 
