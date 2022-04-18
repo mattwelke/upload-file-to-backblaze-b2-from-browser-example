@@ -2,10 +2,12 @@ const axios = require('axios');
 
 const config = require('../config');
 
+const apiMethodName = 'b2_authorize_account';
+
 module.exports = async () => {
     const authRes = await axios({
         method: 'GET',
-        url: 'https://api.backblazeb2.com/b2api/v2/b2_authorize_account',
+        url: `https://api.backblazeb2.com/b2api/v2/${apiMethodName}`,
         auth: {
             username: config.b2KeyId,
             password: config.b2ApplicationKey,
@@ -15,14 +17,23 @@ module.exports = async () => {
     console.info(`Success getting B2 auth details`);
 
     const data = authRes.data;
-
-    const bucketId = data.allowed.bucketId;
-    const apiUrl = data.apiUrl;
-    const authToken = data.authorizationToken;
+    
+    if (!data.allowed) {
+        throw new Error(`Missing property "allowed" in ${apiMethodName} response.`);
+    }
+    if (!data.allowed.bucketId) {
+        throw new Error(`Missing property "allowed.bucketId" in ${apiMethodName} response.`);
+    }
+    if (!data.apiUrl) {
+        throw new Error(`Missing property "apiUrl" in ${apiMethodName} response.`);
+    }
+    if (!data.authorizationToken) {
+        throw new Error(`Missing property "authorizationToken" in ${apiMethodName} response.`);
+    }
 
     return {
-        bucketId,
-        apiUrl,
-        authToken,
+        bucketId: data.allowed.bucketId,
+        apiUrl: data.apiUrl,
+        authToken: data.authorizationToken,
     };
 };
