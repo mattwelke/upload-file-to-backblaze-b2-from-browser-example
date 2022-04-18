@@ -53,8 +53,40 @@ Set the following environment variables:
 
 * B2_KEY_ID - The keyId for your B2 application key
 * B2_APPLICATION_KEY - Your B2 application key
+* B2_BUCKET_ID - The ID of the B2 bucket you're uploading files into.
+
+If you're following this tutorial as a new Backblaze B2 user, and you created a bucket just for this test, you can get the bucket ID by looking at your list of buckets after logging in(https://secure.backblaze.com/b2_buckets.htm):
+
+![get_bucket_id](https://user-images.githubusercontent.com/7719209/163889482-f4ee4a48-b9d3-4b7c-a38a-324713d45ea0.png)
 
 Run the app with `npm start` from the `backend` directory.
+
+It can be helpful to step through an example line by line with a debugger instead of running the app this way. If you want to do this with VS Code, you can use a launch config like this:
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/backend/bin/www",
+            "env": {
+                "B2_KEY_ID": "<your_key_id>",
+                "B2_APPLICATION_KEY": "<your_application_key>",
+                "B2_BUCKET_ID": "<your_bucket_id>"
+            }
+        }
+    ]
+}
+```
 
 ## Running front end
 
