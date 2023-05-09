@@ -14,7 +14,7 @@
   "devDependencies": {
     "browser-sync": "^2.28.1",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.1.1"
   },
   "dependencies": {
     "crypto-js": "^4.1.1",
