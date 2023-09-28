@@ -3,10 +3,10 @@ name: Run Tests
 on: [push]
 
 jobs:
-    test:
-        name: Run Tests
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - run: npm install
-            - run: npm test
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm test

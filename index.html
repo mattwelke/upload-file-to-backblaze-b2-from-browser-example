@@ -7,31 +7,68 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="dist/main.js"></script>
+    <script src="/dist/main.js"></script>
+    <style>
+        #main-heading {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #result-message-container span {
+            margin: 0.3rem;
+            padding: 0.3rem;
+            font-weight: bold;
+        }
+
+        #result-message-container span.pending {
+            color: white;
+            background-color: grey;
+        }
+
+        #result-message-container span.succeeded {
+            color: white;
+            background-color: green;
+        }
+
+        #result-message-container span.failed {
+            color: white;
+            background-color: green;
+        }
+
+        #result-message-container {
+            display: none;
+        }
+
+        #result-message-container.show {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>B2 Image Browser Upload Test</h1>
-        <div class="row">
-            <div class="col-sm">
-                <p>Choose a file to upload and click "Upload".</p>
-                <p>Observe in the network tab as the following steps are performed:</p>
-                <ol>
-                    <li>The upload details are fetched from the running back end.</li>
-                    <li>The preflight (OPTIONS) request for the B2 file upload is performed.</li>
-                    <li>The POST request for the B2 file upload is performed to the upload URL returned from the running
-                        back end.</li>
-                </ol>
-            </div>
+        <h2 id="main-heading">B2 Image Browser Upload Example</h2>
+
+        <div>
+            <p>Choose a file to upload and click "Upload".</p>
+            <p>Observe in the network tab as the following steps are performed:</p>
+            <ol>
+                <li>The upload details are fetched from the running back end.</li>
+                <li>The preflight (OPTIONS) request for the B2 file upload is performed.</li>
+                <li>The POST request for the B2 file upload is performed to the upload URL returned from the running
+                    back end.</li>
+            </ol>
         </div>
-        <div class="row">
-            <div class="col-sm">
-                <div class="form-group">
-                    <input type="file" class="" id="uploadFileInput" /><br />
-                    <button class="btn-default" id="uploadFileButton">Upload</button>
-                </div>
-            </div>
+
+        <div class="form-group">
+            <input type="file" class="" id="uploadFileInput" /><br />
+            <button class="btn-default" id="uploadFileButton">Upload</button>
+        </div>
+
+
+        <div class="results">
+            <p>Upload file result:</p>
+            <div id="result-message-container">Upload succeeded (2xx response from b2_upload_file API)</div>
         </div>
 </body>
 
