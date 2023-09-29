@@ -59,7 +59,9 @@ describe('e2e test uploading file', function () {
         });
 
         // Start browser and load front end page with it.
-        browser = await puppeteer.launch();
+        browser = await puppeteer.launch({
+            headless: 'new',
+        });
     });
 
     afterEach(async function () {
