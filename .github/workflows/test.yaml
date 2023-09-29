@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install front end NPM deps
         run: npm ci
+      - name: Build front end
+        run: npm run build
       - name: Install back end NPM deps
         run: cd backend && npm ci && cd ..
       - run: npm test
