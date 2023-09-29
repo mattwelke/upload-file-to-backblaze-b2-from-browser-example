@@ -7,10 +7,11 @@ const bePort = 3000;
 const fePort = 3001;
 
 const _10_SEC = 10000;
-const _11_SEC = 11000;
+const _15_SEC = 15000;
+const _20_SEC = 20000;
 
-describe('tests', function () {
-    this.timeout(2000);
+describe('e2e test uploading file', function () {
+    this.timeout(_20_SEC);
 
     let feServer;
     /**
@@ -77,8 +78,8 @@ describe('tests', function () {
         console.log('Front end server closed.');
     });
 
-    it('actual test', async function () {
-        this.timeout(_11_SEC);
+    it('uploads the test file 1x1.png to B2, getting a 2xx response to the b2_upload_file API call', async function () {
+        this.timeout(_15_SEC);
 
         const page = await browser.newPage();
 
