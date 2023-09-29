@@ -1,5 +1,8 @@
 # upload-file-to-backblaze-b2-from-browser-example
 
+![test workflow](https://github.com/mattwelke/upload-file-to-backblaze-b2-from-browser-example/actions/workflows/test.yaml/badge.svg)
+![empty_b2_bucket workflow](https://github.com/mattwelke/upload-file-to-backblaze-b2-from-browser-example/actions/workflows/empty_b2_bucket.yaml/badge.svg)
+
 This example demonstrates using the "b2_upload_file" Backblaze B2 Cloud Storage API from a web browser to upload a file directly from a web browser to the B2 bucket, without the file contents having to go through an intermediate web server you control.
 
 This is similar to using techniques with other cloud storage providers such as AWS's [presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html) and GCP's [signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls).
