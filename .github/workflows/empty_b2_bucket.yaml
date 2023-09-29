@@ -1,0 +1,31 @@
+# This workflow periodically empties out the B2 bucket used for the automated
+# test. Each time the test runs, a file revision is uploaded to the bucket, so
+# I need to clear the revisions out once in a while. Here, it happens every
+# month.
+
+name: Empty test bucket
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Empty bucket
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+            echo "Downloading B2 CLI..."
+            wget -q https://github.com/Backblaze/B2_Command_Line_Tool/releases/latest/download/b2-linux
+            mv b2-linux b2
+            chmod +x b2
+            echo "Done."
+
+            echo "Authenticating CLI..."
+            ./b2 authorize_account $B2_KEY_ID $B2_APPLICATION_KEY
+            echo "Done."
+
+            echo "Emptying test bucket contents..."
+            ./b2 rm --versions --recursive $B2_BUCKET_NAME
+            echo "Done."

@@ -3,10 +3,19 @@ name: Run Tests
 on: [push]
 
 jobs:
-    test:
-        name: Run Tests
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - run: npm install
-            - run: npm test
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    env:
+      B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
+      B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+      B2_BUCKET_ID: ${{ secrets.B2_BUCKET_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install front end NPM deps
+        run: npm ci
+      - name: Build front end
+        run: npm run build
+      - name: Install back end NPM deps
+        run: cd backend && npm ci && cd ..
+      - run: npm test

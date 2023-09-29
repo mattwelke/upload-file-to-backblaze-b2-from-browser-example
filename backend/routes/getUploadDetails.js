@@ -7,12 +7,12 @@ module.exports = async (req, res, next) => {
     try {
         const authDetails = await getAuthDetails();
         const uploadDetails = await getUploadDetails(authDetails);
-        
+
         res.json(uploadDetails);
         console.info(`Rendered JSON response with upload details:`, uploadDetails);
         return;
     } catch (e) {
-        console.error(`Error while getting B2 upload details:`, e.message);
+        console.error(`Error while getting B2 upload details:`, e);
         res.status(500).send({
             error: `Could not get upload details: ${e.message}`,
         });
