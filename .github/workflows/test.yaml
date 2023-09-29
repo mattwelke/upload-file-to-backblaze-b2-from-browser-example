@@ -6,6 +6,10 @@ jobs:
   test:
     name: Run Tests
     runs-on: ubuntu-latest
+    env:
+      B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
+      B2_APPLICATIONS_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+      B2_BUCKET_ID: ${{ secrets.B2_BUCKET_ID }}
     steps:
       - uses: actions/checkout@v4
       - name: Install front end NPM deps
