@@ -7,11 +7,11 @@ const bePort = 3000;
 const fePort = 3001;
 
 const _15_SEC = 15000;
-const _30_SEC = 30000;
 const _1_MIN = 60000;
+const _2_MIN = 120000;
 
 describe('e2e test uploading file', function () {
-    this.timeout(_1_MIN);
+    this.timeout(_2_MIN);
 
     let feServer;
     /**
@@ -81,7 +81,7 @@ describe('e2e test uploading file', function () {
     });
 
     it('uploads the test file 1x1.png to B2, getting a 2xx response to the b2_upload_file API call', async function () {
-        this.timeout(_30_SEC);
+        this.timeout(_1_MIN);
 
         const page = await browser.newPage();
 
