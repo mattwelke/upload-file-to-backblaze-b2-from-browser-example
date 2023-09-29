@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Display the success element
                     const ref = document.getElementById('result-message-container');
                     ref.setAttribute('class', 'show');
+                    console.log('Made result message container element in the DOM visible. If this is being run by the example reader, they should now see it in their browser. If this is being run by the automated test, the test should now be able to progress past its Headless Chrome "wait for selector" step and move on to its assertion step.');
                     msg = '2xx response from B2 API. Success.';
                 } else if (xhr.status >= 400 && xhr.status < 500) {
                     msg = '4xx error from B2 API. See other console log messages and requests in network tab for details.';
@@ -62,8 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Whether it succeeded or failed, log a message for the example runner.
                 console.log(`Upload file result: ${msg}`);
-
-                console.log('Made result message container element in the DOM visible. If this is being run by the example reader, they should now see it in their browser. If this is being run by the automated test, the test should now be able to progress past its Headless Chrome "wait for selector" step and move on to its assertion step.');
             });
 
             xhr.open("POST", uploadDetails.uploadUrl);
