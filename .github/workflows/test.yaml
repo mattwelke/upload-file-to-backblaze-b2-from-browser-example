@@ -7,7 +7,7 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install front end NPM deps
         run: npm ci
       - name: Install back end NPM deps

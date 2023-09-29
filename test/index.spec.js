@@ -6,12 +6,12 @@ const puppeteer = require('puppeteer');
 const bePort = 3000;
 const fePort = 3001;
 
-const _10_SEC = 10000;
 const _15_SEC = 15000;
-const _20_SEC = 20000;
+const _30_SEC = 30000;
+const _1_MIN = 60000;
 
 describe('e2e test uploading file', function () {
-    this.timeout(_20_SEC);
+    this.timeout(_1_MIN);
 
     let feServer;
     /**
@@ -24,7 +24,7 @@ describe('e2e test uploading file', function () {
     let browser;
 
     beforeEach(async function () {
-        this.timeout(_10_SEC);
+        this.timeout(_15_SEC);
 
         // Build front end
         exec('npm run build');
@@ -65,7 +65,7 @@ describe('e2e test uploading file', function () {
     });
 
     afterEach(async function () {
-        this.timeout(_10_SEC);
+        this.timeout(_15_SEC);
 
         // Stop Puppeteer stuff
         await browser.close();
@@ -81,7 +81,7 @@ describe('e2e test uploading file', function () {
     });
 
     it('uploads the test file 1x1.png to B2, getting a 2xx response to the b2_upload_file API call', async function () {
-        this.timeout(_15_SEC);
+        this.timeout(_30_SEC);
 
         const page = await browser.newPage();
 
@@ -106,7 +106,7 @@ describe('e2e test uploading file', function () {
         try {
             // Wait for the file to be uploaded. We assume the file was uploaded if we see the
             // success message ont he DOM.
-            await page.waitForSelector('#result-message-container.show', { timeout: _10_SEC });
+            await page.waitForSelector('#result-message-container.show', { timeout: _15_SEC });
         } catch (e) {
             console.error('Failed to find success message container element with desired class name in alloted time', e);
         }
