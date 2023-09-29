@@ -15,7 +15,7 @@ jobs:
     name: Empty bucket
     runs-on: ubuntu-latest
     env:
-      B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
+      B2_APPLICATION_KEY_ID: ${{ secrets.B2_KEY_ID }}
       B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}
       B2_BUCKET_NAME: ${{ secrets.B2_BUCKET_NAME }}
     steps:
@@ -27,7 +27,7 @@ jobs:
             echo "Done."
 
             echo "Authenticating CLI..."
-            ./b2 authorize_account $B2_KEY_ID $B2_APPLICATION_KEY
+            ./b2 authorize_account
             echo "Done."
 
             echo "Emptying test bucket contents..."
