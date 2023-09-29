@@ -109,6 +109,7 @@ describe('e2e test uploading file', function () {
             await page.waitForSelector('#result-message-container.show', { timeout: _15_SEC });
         } catch (e) {
             console.error('Failed to find success message container element with desired class name in alloted time', e);
+            throw e;
         }
 
         await page.close();
