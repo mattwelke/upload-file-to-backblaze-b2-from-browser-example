@@ -7,10 +7,9 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Install Puppeteer libraries
-        run: |
-            sudo apt-get update
-            sudo apt-get install -y libgbm1
       - uses: actions/checkout@v2
-      - run: npm ci
+      - name: Install front end NPM deps
+        run: npm ci
+      - name: Install back end NPM deps
+        run: cd backend && npm ci && cd ..
       - run: npm test
