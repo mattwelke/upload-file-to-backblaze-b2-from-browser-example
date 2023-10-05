@@ -11,6 +11,11 @@ jobs:
       B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}
       B2_BUCKET_ID: ${{ secrets.B2_BUCKET_ID }}
     steps:
+      - run: |
+          echo "Testing secrets..."
+          echo "B2_KEY_ID: $B2_KEY_ID"
+          echo "B2_APPLICATION_KEY: $B2_APPLICATION_KEY"
+          echo "B2_BUCKET_ID: $B2_BUCKET_ID"
       - uses: actions/checkout@v4
       - name: Install front end NPM deps
         run: npm ci
