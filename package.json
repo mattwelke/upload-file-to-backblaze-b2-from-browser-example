@@ -22,7 +22,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "crypto-js": "^4.1.1",
+    "crypto-js": "^4.2.0",
     "sha1": "^1.1.1"
   }
 }
