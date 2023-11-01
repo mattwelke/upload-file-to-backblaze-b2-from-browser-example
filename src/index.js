@@ -25,6 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const uploadFileInput = document.getElementById("uploadFileInput");
     const uploadFileButton = document.getElementById("uploadFileButton");
 
+    // When selected file changes, hide the status message
+    uploadFileInput.addEventListener("change", async () => {
+        const ref = document.getElementById('result-message-container');
+        ref.removeAttribute('class');
+    });
+
     // When upload button clicked, get upload details and then perform file
     // upload with AJAX.
     uploadFileButton.addEventListener("click", async () => {
